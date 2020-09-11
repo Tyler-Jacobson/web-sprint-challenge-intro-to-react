@@ -2,9 +2,17 @@ import Axios from "axios";
 import React, { useState, useEffect } from "react";
 import styled from "styled-components"
 import "./App.css";
-import Character from "./Character";
+import Character from "./components/Character";
 
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
+  h1 {
+    font-size: 4rem;
+  }
+`
 
 const App = () => {
   const [charactersData, setCharacterData] = useState([]);
@@ -27,13 +35,13 @@ const App = () => {
   }, []);
 
   return (
-    <div className="App">
+    <Wrapper className="App">
       <h1 className="Header">Characters</h1>
 
       {charactersData.map((characterIterationVar) => (
         <Character characterData={characterIterationVar} />
       ))}
-    </div>
+    </Wrapper>
   );
 };
 
