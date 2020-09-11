@@ -25,7 +25,7 @@ const App = () => {
   // sync up with, if any.
 
   useEffect(() => {
-    Axios.get("https://rickandmortyapi.com/api/character/1,3,142,117,183") //
+    Axios.get("https://rickandmortyapi.com/api/character/1,3,142,117,183,32,118") //
       .then((res) => {
         setCharacterData(res.data);
       })

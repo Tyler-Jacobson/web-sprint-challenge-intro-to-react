@@ -25,14 +25,18 @@ const CharDetails = styled.div`
   display: flex;
   flex-direction: column;
   max-width: 100%;
+  font-size: 2rem;
 
   h2 {
       font-size: 2.5rem;
   }
 
-  h3 {
-      font-size: 2rem;
-  }
+
+`;
+
+const Status = styled.h3`
+    color: green;
+    color: ${(param) => param.alert ? "red" : "green"};
 `;
 
 const Character = (props) => {
@@ -43,7 +47,7 @@ const Character = (props) => {
       <img src={characterData.image} alt={`${characterData.name}`}></img>
       <CharDetails>
         <h2> Name: {characterData.name} </h2>
-        <h3> Status: {characterData.status} </h3>
+        <Status alert={characterData.status === "Dead"}> Status: {characterData.status} </Status>
         <h3> Species: {characterData.species} </h3>
         <h3> Location: {characterData.location.name} </h3>
       </CharDetails>
